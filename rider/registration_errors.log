@@ -1,0 +1,2 @@
+2025-11-27 02:57:08 - Rider registration DB error (code: 1054): Unknown column 'full_name' in 'field list'
+2025-11-27 02:59:13 - Rider registration DB error (code: 1054): Unknown column 'full_name' in 'field list'

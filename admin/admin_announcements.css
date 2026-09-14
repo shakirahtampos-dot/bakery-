@@ -1,0 +1,1705 @@
+:root {
+
+    --sidebar-width: 255px;
+
+    --sidebar-bg: #252324;
+    --sidebar-hover: #edf2fa;
+    --sidebar-hover-text: #343a46;
+
+    --white: #ffffff;
+
+    --body-bg: #f5f5f7;
+    --card-bg: #ffffff;
+
+    --text: #242424;
+    --muted: #858585;
+
+    --border: #e8e8e8;
+
+    --purple: #764ba2;
+    --purple-dark: #633b89;
+    --purple-light: #f2ebf8;
+
+    --success: #2a9b59;
+    --success-bg: #e9f8ef;
+
+    --error: #d64545;
+    --error-bg: #fdeaea;
+
+    --sidebar-width: 255px;
+
+    --sidebar-gradient: linear-gradient(160deg, #c89461 0%, #6f3515 100%);
+
+    --body-bg: #f5f5f7;
+
+    /* Shared easing so the sidebar, overlay, and icon all feel like one motion */
+    --sidebar-ease: cubic-bezier(0.65, 0, 0.35, 1);
+    --sidebar-duration: 0.38s;
+
+
+    --shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--body-bg);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+
+    background-image: url("sidebarbckgrd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding: 35px 0 25px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+
+    /* Slide transform lives here at all breakpoints now, so desktop
+       and mobile share one consistent, smooth transition. */
+    transform: translateX(0);
+
+    transition: transform var(--sidebar-duration) var(--sidebar-ease);
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   SIDEBAR PROFILE
+========================================================= */
+
+.sidebar-profile {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 0 15px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   PROFILE LOGO
+========================================================= */
+
+.profile-image {
+    width: 95px;
+    height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   PROFILE INFORMATION
+========================================================= */
+
+.profile-info {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.profile-info h3 {
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    margin: 0;
+}
+
+.profile-info span {
+    display: block;
+
+    color: #a9a9a9;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
+
+.sidebar-nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   SIDEBAR LINK
+========================================================= */
+
+.sidebar-link {
+    position: relative;
+
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 20px;
+
+    text-decoration: none;
+
+    color: #f3f3f3;
+
+    border-radius: 35px 0 0 35px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    flex-shrink: 0;
+
+    transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER / ACTIVE BACKGROUND
+========================================================= */
+
+.sidebar-link::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 100%;
+
+    background: var(--sidebar-hover);
+
+    border-radius: 35px 0 0 35px;
+
+    z-index: -1;
+
+    transition: width 0.38s cubic-bezier(
+        0.65,
+        0,
+        0.35,
+        1
+    );
+}
+
+
+/* HOVER */
+
+.sidebar-link:hover::before {
+    width: 100%;
+}
+
+.sidebar-link:hover {
+    color: var(--sidebar-hover-text);
+}
+
+
+/* ACTIVE */
+
+.sidebar-link.active::before {
+    width: 100%;
+}
+
+.sidebar-link.active {
+    color: var(--sidebar-hover-text);
+}
+
+
+/* =========================================================
+   SIDEBAR ICON
+========================================================= */
+
+.sidebar-icon {
+    width: 23px;
+    min-width: 23px;
+
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.sidebar-icon i {
+    font-size: 17px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ICON HOVER */
+
+.sidebar-link:hover .sidebar-icon i {
+    transform: scale(1.1);
+}
+
+
+/* ICON ACTIVE */
+
+.sidebar-link.active .sidebar-icon i {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   SIDEBAR TEXT
+========================================================= */
+
+.sidebar-text {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    transition: transform 0.3s ease;
+}
+
+.sidebar-link:hover .sidebar-text {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+========================================================= */
+
+.sidebar-bottom {
+    width: 100%;
+
+    padding-top: 15px;
+
+    margin-top: auto;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
+
+.logout-btn {
+    position: relative;
+
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #f3f3f3;
+
+    border-radius: 35px 0 0 35px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+/* LOGOUT BACKGROUND */
+
+.logout-btn::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 100%;
+
+    background: var(--sidebar-hover);
+
+    border-radius: 35px 0 0 35px;
+
+    z-index: -1;
+
+    transition: width 0.38s cubic-bezier(
+        0.65,
+        0,
+        0.35,
+        1
+    );
+}
+
+
+/* LOGOUT HOVER */
+
+.logout-btn:hover::before {
+    width: 100%;
+}
+
+.logout-btn:hover {
+    color: var(--sidebar-hover-text);
+}
+
+.logout-btn:hover .sidebar-icon i {
+    transform: translateX(3px);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    min-height: 100vh;
+
+    margin-left: var(--sidebar-width);
+
+    padding: 35px;
+
+    transition: margin-left var(--sidebar-duration) var(--sidebar-ease);
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.header-small {
+    display: block;
+
+    color: var(--purple);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 5px;
+}
+
+.page-header h1 {
+    color: #222222;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.page-header p {
+    color: #888888;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   ANNOUNCEMENT PAGE
+========================================================= */
+
+.announcement-page {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SYSTEM MESSAGE
+========================================================= */
+
+.system-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 13px 16px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.system-message.success {
+    background: var(--success-bg);
+
+    color: var(--success);
+
+    border: 1px solid #c9efd6;
+}
+
+.system-message.error {
+    background: var(--error-bg);
+
+    color: var(--error);
+
+    border: 1px solid #f4cccc;
+}
+
+.message-close {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-close:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   TOP SECTION
+========================================================= */
+
+.top-section {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(300px, 0.9fr);
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   COMMON CARD
+========================================================= */
+
+.create-announcement,
+.recent-posts {
+    background: var(--white);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   CREATE ANNOUNCEMENT
+========================================================= */
+
+.create-announcement {
+    padding: 25px;
+}
+
+
+/* =========================================================
+   CARD HEADING
+========================================================= */
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.card-heading span {
+    display: block;
+
+    color: var(--purple);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    margin-bottom: 3px;
+}
+
+.card-heading h2 {
+    color: #303030;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.heading-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    background: var(--purple-light);
+
+    color: var(--purple);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.heading-icon i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.announcement-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: #555555;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #dedede;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    height: 46px;
+
+    padding: 0 13px;
+}
+
+.form-group textarea {
+    min-height: 145px;
+
+    padding: 12px 13px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(118, 75, 162, 0.09);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* =========================================================
+   STATUS DISPLAY
+========================================================= */
+
+.status-display {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 13px;
+
+    border: 1px solid #dedede;
+
+    border-radius: 9px;
+
+    background: #fafafa;
+
+    color: #555555;
+
+    font-size: 13px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(42, 155, 89, 0.10);
+}
+
+
+/* =========================================================
+   CHARACTER COUNTER
+========================================================= */
+
+.form-group.full:has(textarea) {
+    position: relative;
+}
+
+.character-counter {
+    color: #999999;
+
+    font-size: 10px;
+
+    text-align: right;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.form-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   CLEAR BUTTON
+========================================================= */
+
+.clear-btn {
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid #dedede;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #555555;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.clear-btn i {
+    margin-right: 6px;
+}
+
+.clear-btn:hover {
+    background: #f5f5f5;
+
+    border-color: #cccccc;
+}
+
+
+/* =========================================================
+   PUBLISH BUTTON
+========================================================= */
+
+.publish-btn {
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--purple);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.publish-btn i {
+    margin-right: 6px;
+}
+
+.publish-btn:hover {
+    background: var(--purple-dark);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(118, 75, 162, 0.22);
+}
+
+
+/* =========================================================
+   RECENT POSTS
+========================================================= */
+
+.recent-posts {
+    padding: 22px;
+}
+
+.recent-posts .card-heading {
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   RECENT POSTS LIST
+========================================================= */
+
+.recent-posts-list {
+    display: flex;
+
+    flex-direction: column;
+
+    max-height: 520px;
+
+    overflow-y: auto;
+
+    padding-right: 4px;
+}
+
+.recent-posts-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.recent-posts-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.recent-posts-list::-webkit-scrollbar-thumb {
+    background: #d5d5d5;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   RECENT POST ITEM
+========================================================= */
+
+.recent-post-item {
+    display: flex;
+
+    gap: 11px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.recent-post-item:first-child {
+    padding-top: 0;
+}
+
+.recent-post-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   RECENT ICON
+========================================================= */
+
+.recent-post-icon {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    background: var(--purple-light);
+
+    color: var(--purple);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recent-post-icon i {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECENT CONTENT
+========================================================= */
+
+.recent-post-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.recent-post-content h3 {
+    color: #333333;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+.recent-post-content p {
+    color: #888888;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-top: 4px;
+
+    /*
+       Two-line limit without using
+       -webkit-line-clamp.
+    */
+
+    display: block;
+
+    max-height: 30px;
+
+    overflow: hidden;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   RECENT META
+========================================================= */
+
+.recent-post-meta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+
+    margin-top: 7px;
+}
+
+.recent-post-type {
+    display: inline-flex;
+
+    align-items: center;
+
+    background: var(--purple-light);
+
+    color: var(--purple);
+
+    padding: 3px 8px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.recent-post-date {
+    color: #aaaaaa;
+
+    font-size: 9px;
+}
+
+.recent-post-date i {
+    margin-right: 3px;
+}
+
+
+/* =========================================================
+   EMPTY RECENT POSTS
+========================================================= */
+
+.recent-posts-empty {
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #f4f4f4;
+
+    color: #aaaaaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 13px;
+}
+
+.empty-icon i {
+    font-size: 20px;
+}
+
+.recent-posts-empty h3 {
+    color: #555555;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recent-posts-empty p {
+    color: #999999;
+
+    font-size: 10px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--sidebar-bg);
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    z-index: 1200;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.2);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s var(--sidebar-ease);
+}
+
+.mobile-menu-btn:active {
+    transform: scale(0.92);
+}
+
+/* Icon swap (bars -> xmark) gets its own tiny rotate/fade so the
+   button never looks like it "jumps" between icons. */
+.mobile-menu-btn i {
+    transition:
+        transform 0.25s var(--sidebar-ease),
+        opacity 0.15s ease;
+}
+
+.mobile-menu-btn.is-open {
+    background: #252324;;
+}
+
+.mobile-menu-btn.is-open i {
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 900;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity var(--sidebar-duration) ease,
+        visibility 0s linear var(--sidebar-duration);
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity var(--sidebar-duration) ease,
+        visibility 0s linear 0s;
+}
+
+
+
+
+/* =========================================================
+   LOGOUT MODAL
+========================================================= */
+
+.logout-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0.25s;
+}
+
+.logout-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0s;
+}
+
+
+/* =========================================================
+   LOGOUT MODAL CONTENT
+========================================================= */
+
+.logout-modal-content {
+    width: 100%;
+
+    max-width: 370px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
+
+    transform: translateY(15px) scale(0.96);
+
+    transition: transform 0.25s var(--sidebar-ease);
+}
+
+.logout-modal.active .logout-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   LOGOUT ICON
+========================================================= */
+
+.logout-modal-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: var(--purple-light);
+
+    color: var(--purple);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+}
+
+.logout-modal-icon i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LOGOUT TEXT
+========================================================= */
+
+.logout-modal-content h2 {
+    color: #292929;
+
+    font-size: 20px;
+}
+
+.logout-modal-content p {
+    color: #888888;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   LOGOUT BUTTONS
+========================================================= */
+
+.logout-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.logout-buttons button {
+    flex: 1;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   LOGOUT CONFIRM
+========================================================= */
+
+.logout-confirm {
+    background: var(--purple);
+
+    color: #ffffff;
+}
+
+.logout-confirm:hover {
+    background: var(--purple-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LOGOUT CANCEL
+========================================================= */
+
+.logout-cancel {
+    background: #eeeeee;
+
+    color: #444444;
+}
+
+.logout-cancel:hover {
+    background: #dddddd;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .top-section {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-posts {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .announcement-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+
+    .sidebar {
+        width: 270px;
+
+        /* Hidden off-canvas by default on mobile. Transform is the
+           ONLY thing that changes on open/close, so the transition
+           declared on .sidebar above runs every time, smoothly,
+           in both directions. */
+        transform: translateX(-100%);
+
+        padding-top: 75px;
+
+        box-shadow:
+            10px 0 30px rgba(0, 0, 0, 0.25);
+    }
+
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+
+    .main {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 80px 15px 30px;
+    }
+
+    /* =====================================================
+       PAGE HEADER
+    ===================================================== */
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .page-header p {
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       CREATE CARD
+    ===================================================== */
+
+    .create-announcement {
+        padding: 20px;
+    }
+
+    .recent-posts {
+        padding: 20px;
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .announcement-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        grid-column: auto;
+
+        flex-direction: column-reverse;
+    }
+
+    .clear-btn,
+    .publish-btn {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       RECENT POSTS
+    ===================================================== */
+
+    .recent-posts-list {
+        max-height: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .main {
+        padding: 75px 12px 25px;
+    }
+
+
+    /* =====================================================
+       PAGE HEADER
+    ===================================================== */
+
+    .page-header h1 {
+        font-size: 21px;
+    }
+
+    .page-header p {
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       CARD HEADING
+    ===================================================== */
+
+    .card-heading h2 {
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
+
+    .create-announcement,
+    .recent-posts {
+        padding: 17px;
+
+        border-radius: 13px;
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .form-group input,
+    .form-group select {
+        height: 44px;
+    }
+
+    .form-group textarea {
+        min-height: 130px;
+    }
+
+
+    /* =====================================================
+       LOGOUT MODAL
+    ===================================================== */
+
+    .logout-modal-content {
+        padding: 25px;
+    }
+
+    .logout-buttons {
+        flex-direction: column;
+    }
+
+    .logout-buttons button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .mobile-menu-btn {
+        left: 10px;
+    }
+
+    .card-heading {
+        align-items: flex-start;
+    }
+
+    .heading-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sidebar {
+        width: 255px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .sidebar-overlay,
+    .mobile-menu-btn,
+    .mobile-menu-btn i,
+    .logout-modal,
+    .logout-modal-content {
+        transition-duration: 0.01ms !important;
+    }
+}
