@@ -1,0 +1,1426 @@
+/* =========================================================
+   KATES GOODIES
+   REGISTRATION PAGE
+   FULL RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+
+    --cream: #f7ead8;
+    --cream-light: #fffaf3;
+
+    --dark: #2b140b;
+    --brown: #6f3515;
+    --caramel: #9a4d18;
+    --light-brown: #c89461;
+
+    --text: #21120b;
+
+}
+
+
+/* =========================================================
+   HTML
+   ========================================================= */
+
+html {
+
+    width: 100%;
+
+    min-height: 100%;
+
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 25px;
+
+    background-color: #f7f4ee;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: 900px;
+
+    max-width: 100%;
+
+    min-height: 600px;
+
+    display: flex;
+
+    margin: auto;
+
+    background-color: #fcfbfa;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* =========================================================
+   IMAGE SECTION
+   ========================================================= */
+
+.image-section {
+
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 600px;
+
+    overflow: hidden;
+
+    background-color: #ddd;
+
+}
+
+
+.image-section img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 600px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+    background-color: #faf7f2;
+
+}
+
+
+/* =========================================================
+   FORM WRAPPER
+   ========================================================= */
+
+.form-wrapper {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.imagelogo {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 0 auto 8px;
+
+    padding: 0;
+
+}
+
+
+.imagelogo img {
+
+    display: block;
+
+    width: 150px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================================
+   SIGN UP TITLE
+   ========================================================= */
+
+.signup-title {
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Abril Fatface",
+        Georgia,
+        serif;
+
+    font-size: 1.45rem;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    line-height: 1.3;
+
+    color: var(--dark);
+
+    margin: 0 auto 4px;
+
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.subtitle {
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 1rem;
+
+    color: var(--dark);
+
+    margin: 0 auto 20px;
+
+}
+
+
+/* =========================================================
+   ERROR BOX
+   ========================================================= */
+
+.error-box {
+
+    width: 100%;
+
+    background: #ffe5e2;
+
+    border: 1px solid #d9534f;
+
+    color: #9b241f;
+
+    padding: 9px 12px;
+
+    border-radius: 6px;
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+.error-box p {
+
+    margin: 2px 0;
+
+}
+
+
+/* =========================================================
+   INPUT GROUP
+   ========================================================= */
+
+.input-group {
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    margin-bottom: 5px;
+
+}
+
+
+/* =========================================================
+   INPUT FIELD
+   ========================================================= */
+
+.input-field {
+
+    width: 100%;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: #fff;
+
+    border: 1px solid var(--dark);
+
+    border-radius: 6px;
+
+    padding: 0 10px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.input-field:focus-within {
+
+    border-color: var(--caramel);
+
+    box-shadow:
+        0 0 0 3px rgba(179, 89, 40, 0.08);
+
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.input-field .icon {
+
+    width: 20px;
+
+    min-width: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-right: 8px;
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-field input {
+
+    flex: 1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--dark);
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    font-size: 12px;
+
+}
+
+
+.input-field input::placeholder {
+
+    color: #999;
+
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+   ========================================================= */
+
+.password-toggle {
+
+    width: 28px;
+
+    min-width: 28px;
+
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    font-size: 12px;
+
+}
+
+
+.password-toggle:hover {
+
+    color: var(--dark);
+
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+   ========================================================= */
+
+.register-btn {
+
+    display: block;
+
+    width: 100%;
+
+    height: 42px;
+
+    margin: 8px auto 0;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: var(--dark);
+
+    color: #fff;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+
+}
+
+
+.register-btn:hover {
+
+    background-color: #d6af74;
+
+    color: var(--dark);
+
+}
+
+
+.register-btn:active {
+
+    transform: scale(0.98);
+
+}
+
+
+/* =========================================================
+   LOGIN REDIRECT
+   ========================================================= */
+
+.login-redirect {
+
+    width: 100%;
+
+    text-align: center;
+
+    margin: 18px auto 0;
+
+    color: #666;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+.login-redirect a {
+
+    color: var(--dark);
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    margin-left: 3px;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.login-redirect a:hover {
+
+    color: var(--light-brown);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    body {
+
+        padding: 20px;
+
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        max-width: 760px;
+
+    }
+
+
+    .image-section {
+
+        min-height: 560px;
+
+    }
+
+
+    .image-section img {
+
+        min-height: 560px;
+
+    }
+
+
+    .form-section {
+
+        padding: 30px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+
+        padding: 18px;
+
+        align-items: center;
+
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        max-width: 520px;
+
+        min-height: auto;
+
+        margin: 0 auto;
+
+        flex-direction: column;
+
+        border-radius: 12px;
+
+    }
+
+
+    /* IMAGE */
+
+    .image-section {
+
+        width: 100%;
+
+        height: 210px;
+
+        min-height: 210px;
+
+        flex: none;
+
+    }
+
+
+    .image-section img {
+
+        width: 100%;
+
+        height: 210px;
+
+        min-height: 210px;
+
+        object-fit: cover;
+
+        object-position: center;
+
+    }
+
+
+    /* FORM */
+
+    .form-section {
+
+        width: 100%;
+
+        flex: none;
+
+        padding: 30px 28px 32px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+    }
+
+
+    .form-wrapper {
+
+        width: 100%;
+
+        max-width: 420px;
+
+        margin: 0 auto;
+
+    }
+
+
+    /* LOGO */
+
+    .imagelogo {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        margin: 0 auto 8px;
+
+    }
+
+
+    .imagelogo img {
+
+        width: 130px;
+
+        margin: 0 auto;
+
+    }
+
+
+    .signup-title {
+
+        font-size: 1.4rem;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 0.95rem;
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .input-group {
+
+        margin-bottom: 11px;
+
+    }
+
+
+    .input-field {
+
+        height: 42px;
+
+    }
+
+
+    .register-btn {
+
+        height: 43px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 12px;
+
+        display: flex;
+        margin: 90px 20px 90px -1px;
+        align-items: flex-start;
+
+        justify-content: center;
+
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0 auto;
+
+        border-radius: 10px;
+
+    }
+
+
+    /* IMAGE */
+
+    .image-section {
+
+        width: 100%;
+
+        height: 175px;
+
+        min-height: 175px;
+
+    }
+
+
+    .image-section img {
+
+        width: 100%;
+
+        height: 175px;
+
+        min-height: 175px;
+
+        object-fit: cover;
+
+        object-position: center;
+
+    }
+
+
+    /* FORM */
+
+    .form-section {
+
+        width: 100%;
+
+        padding: 24px 20px 28px;
+
+    }
+
+
+    .form-wrapper {
+
+        width: 100%;
+
+        max-width: 420px;
+
+        margin: 0 auto;
+
+    }
+
+
+    /* LOGO */
+
+    .imagelogo {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        margin: 0 auto 8px;
+
+    }
+
+
+    .imagelogo img {
+
+        width: 115px;
+
+        margin: 0 auto;
+
+    }
+
+
+    .signup-title {
+
+        font-size: 1.3rem;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 0.9rem;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .input-group label {
+
+        font-size: 11px;
+
+    }
+
+
+    .input-field {
+
+        height: 43px;
+
+        padding: 0 10px;
+
+    }
+
+
+    .input-field input {
+
+        font-size: 13px;
+
+    }
+
+
+    .input-field .icon {
+
+        font-size: 13px;
+
+        margin-right: 8px;
+
+    }
+
+
+    .password-toggle {
+
+        width: 28px;
+
+        min-width: 28px;
+
+    }
+
+
+    .register-btn {
+
+        height: 43px;
+
+        font-size: 12px;
+
+    }
+
+
+    .login-redirect {
+
+        font-size: 13px;
+
+        margin-top: 16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding: 8px;
+
+    }
+
+
+    .container {
+
+        border-radius: 8px;
+
+    }
+
+
+    .image-section {
+
+        height: 145px;
+
+        min-height: 145px;
+
+    }
+
+
+    .image-section img {
+
+        height: 145px;
+
+        min-height: 145px;
+
+    }
+
+
+    .form-section {
+
+        padding: 20px 16px 24px;
+
+    }
+
+
+    .imagelogo {
+
+        margin: 0 auto 7px;
+
+    }
+
+
+    .imagelogo img {
+
+        width: 100px;
+
+    }
+
+
+    .signup-title {
+
+        font-size: 1.2rem;
+
+        letter-spacing: 1.2px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 0.85rem;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .error-box {
+
+        font-size: 11px;
+
+        padding: 8px 10px;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .input-group {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .input-group label {
+
+        font-size: 10px;
+
+        margin-bottom: 4px;
+
+    }
+
+
+    .input-field {
+
+        height: 41px;
+
+        border-radius: 5px;
+
+        padding: 0 9px;
+
+    }
+
+
+    .input-field input {
+
+        font-size: 12px;
+
+    }
+
+
+    .input-field input::placeholder {
+
+        font-size: 11px;
+
+    }
+
+
+    .input-field .icon {
+
+        width: 18px;
+
+        min-width: 18px;
+
+        margin-right: 7px;
+
+        font-size: 12px;
+
+    }
+
+
+    .password-toggle {
+
+        width: 25px;
+
+        min-width: 25px;
+
+        font-size: 12px;
+
+    }
+
+
+    .register-btn {
+
+        height: 41px;
+
+        margin-top: 6px;
+
+        font-size: 12px;
+
+        border-radius: 5px;
+
+    }
+
+
+    .login-redirect {
+
+        font-size: 12px;
+
+        margin-top: 14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+   360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    body {
+
+        padding: 5px;
+
+    }
+
+
+    .container {
+
+        border-radius: 7px;
+
+    }
+
+
+    .image-section {
+
+        height: 120px;
+
+        min-height: 120px;
+
+    }
+
+
+    .image-section img {
+
+        height: 120px;
+
+        min-height: 120px;
+
+    }
+
+
+    .form-section {
+
+        padding: 17px 13px 20px;
+
+    }
+
+
+    .imagelogo {
+
+        margin: 0 auto 6px;
+
+    }
+
+
+    .imagelogo img {
+
+        width: 85px;
+
+    }
+
+
+    .signup-title {
+
+        font-size: 1.1rem;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 0.8rem;
+
+        margin-bottom: 13px;
+
+    }
+
+
+    .input-field {
+
+        height: 39px;
+
+    }
+
+
+    .input-field input {
+
+        font-size: 11px;
+
+    }
+
+
+    .input-field input::placeholder {
+
+        font-size: 10px;
+
+    }
+
+
+    .input-group label {
+
+        font-size: 9px;
+
+    }
+
+
+    .register-btn {
+
+        height: 39px;
+
+        font-size: 11px;
+
+    }
+
+
+    .login-redirect {
+
+        font-size: 11px;
+
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    body {
+
+        padding: 10px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        max-width: 900px;
+
+        min-height: auto;
+
+        flex-direction: row;
+
+    }
+
+
+    .image-section {
+
+        width: 40%;
+
+        height: auto;
+
+        min-height: 500px;
+
+    }
+
+
+    .image-section img {
+
+        width: 100%;
+
+        height: 100%;
+
+        min-height: 500px;
+
+        object-fit: cover;
+
+    }
+
+
+    .form-section {
+
+        width: 60%;
+
+        padding: 25px;
+
+    }
+
+
+    .form-wrapper {
+
+        max-width: 380px;
+
+    }
+
+
+    .imagelogo {
+
+        margin: 0 auto 5px;
+
+    }
+
+
+    .imagelogo img {
+
+        width: 85px;
+
+    }
+
+
+    .signup-title {
+
+        font-size: 1.2rem;
+
+    }
+
+
+    .subtitle {
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .input-group {
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .input-field {
+
+        height: 35px;
+
+    }
+
+
+    .register-btn {
+
+        height: 37px;
+
+    }
+
+
+    .login-redirect {
+
+        margin-top: 10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        transition: none !important;
+
+        animation: none !important;
+
+    }
+
+}

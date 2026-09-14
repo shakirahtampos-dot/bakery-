@@ -1,0 +1,570 @@
+/* =========================================================
+   KATE'S GOODIES — ABOUT US PAGE
+   New Our Story Design
+========================================================= */
+
+:root {
+    --about-dark: #2b140b;
+    --about-cream: #f7ead8;
+    --about-light: #fffaf3;
+    --about-brown: #a95216;
+    --about-muted: #d7c3b5;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   ACCOUNT DROPDOWN (added — was missing show/hide rules,
+   so the button had nothing to toggle even after the click
+   handler was wired up)
+========================================================= */
+
+.account-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 999;
+}
+
+.account-dropdown.show {
+    display: block;
+}
+
+.account-container {
+    position: relative;
+}
+
+/* =========================================================
+   OUR STORY HERO
+========================================================= */
+
+
+
+.about-page {
+    min-height: 0;
+    padding: 85px 5.5% 90px;
+
+    background: var(--about-dark);
+    color: var(--about-cream);
+
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    align-items: center;
+    gap: 5%;
+
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   IMAGE COLLAGE
+========================================================= */
+/* =========================================================
+   IMAGE COLLAGE — SLIGHTLY WIDER
+========================================================= */
+
+.about-images {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    min-height: 475px;
+    margin: 0 auto;
+
+    display: block;
+}
+
+.about-images img {
+    position: absolute;
+    object-fit: cover;
+    display: block;
+}
+
+/* Main image */
+
+.about-images img:first-child {
+    width: 91%;
+    height: 455px;
+
+    top: 0;
+    left: 0;
+}
+
+/* Small overlapping image */
+
+.about-images img:last-child {
+    width: 47%;
+    height: 185px;
+
+    right: 0;
+    bottom: -42px;
+
+    border: 8px solid var(--about-dark);
+    z-index: 2;
+}
+
+/* =========================================================
+   STORY TEXT
+========================================================= */
+/* =========================================================
+   STORY TEXT
+========================================================= */
+/* =========================================================
+   STORY TEXT — FIXED
+========================================================= */
+
+.about-text {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+
+    padding: 15px 0;
+
+    color: var(--about-cream);
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Section label */
+
+.about-text .section-label {
+    display: block;
+    margin-bottom: 20px;
+
+    color: #c89461;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Main heading */
+
+.about-text h2 {
+    margin: 0 0 28px;
+
+    color: var(--about-cream);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(44px, 4.2vw, 67px);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.about-text h2 span {
+    color: var(--about-brown);
+    font-style: italic;
+}
+
+/* Paragraph */
+
+.about-text > p {
+    width: 100%;
+    max-width: 560px;
+
+    margin: 0 0 35px;
+
+    color: #f4e9df;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+/* =========================================================
+   VALUES
+========================================================= */
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+/* =========================================================
+   VALUES — TWO COLUMNS
+========================================================= */
+
+.values {
+    width: 100%;
+    max-width: 560px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 38px;
+    row-gap: 27px;
+
+    margin: 0;
+}
+
+.values > div {
+    min-width: 0;
+}
+
+.values h3 {
+    margin: 0 0 7px;
+
+    color: var(--about-cream);
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.values p {
+    margin: 0;
+
+    color: #d9c5b8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+/* =========================================================
+   ABOUT OVERVIEW
+========================================================= */
+
+.about-overview {
+    padding: 100px 7%;
+    background: var(--about-cream);
+    color: var(--about-dark);
+}
+
+.about-overview-heading {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.about-overview-heading h2 {
+    margin: 15px 0 20px;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(45px, 6vw, 70px);
+    line-height: 0.95;
+}
+
+.about-overview-heading p {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: #765e50;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.about-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.about-overview-card {
+    min-height: 240px;
+    padding: 32px 25px;
+
+    background: var(--about-light);
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.about-overview-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(43, 20, 11, 0.12);
+}
+
+.overview-number {
+    margin-bottom: 35px;
+
+    color: var(--about-brown);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+}
+
+.about-overview-card h3 {
+    margin-bottom: 12px;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+}
+
+.about-overview-card p {
+    color: #765e50;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   WHY SECTION
+========================================================= */
+
+.about-why {
+    background: var(--about-light);
+}
+
+/* =========================================================
+   VISIT SECTION
+========================================================= */
+
+.about-visit {
+    min-height: 470px;
+    padding: 90px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #c89461;
+    color: var(--about-cream);
+    text-align: center;
+}
+
+.about-visit-content {
+    max-width: 800px;
+}
+
+.about-visit h2 {
+    margin: 15px 0 25px;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 0.95;
+}
+
+.about-visit h2 span {
+    display: block;
+    color: var(--about-dark);
+    font-style: italic;
+}
+
+.about-visit p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.about-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.about-primary-button,
+.about-secondary-button {
+    padding: 14px 25px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.4s ease;
+}
+
+.about-primary-button {
+    background: var(--about-dark);
+    color: var(--about-cream);
+}
+
+.about-secondary-button {
+    border: 1px solid var(--about-dark);
+    color: var(--about-dark);
+}
+
+.about-primary-button:hover {
+    background: var(--about-cream);
+    color: var(--about-dark);
+}
+
+.about-secondary-button:hover {
+    background: var(--about-dark);
+    color: var(--about-cream);
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.scroll-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .about-page {
+        padding: 75px 5% 80px;
+        grid-template-columns: 1fr 1fr;
+        gap: 4%;
+    }
+
+    .about-images {
+        min-height: 420px;
+    }
+
+    .about-images img:first-child {
+        width: 91%;
+        height: 400px;
+    }
+
+    .about-images img:last-child {
+        bottom: -35px;
+        height: 165px;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: clamp(38px, 4.5vw, 58px);
+        letter-spacing: -1px;
+    }
+
+    .about-text > p,
+    .values {
+        max-width: 100%;
+    }
+
+    .values {
+        column-gap: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .about-page {
+        min-height: 0;
+        padding: 60px 6% 75px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .about-images {
+        width: 100%;
+        max-width: 100%;
+        min-height: 340px;
+    }
+
+    .about-images img:first-child {
+        width: 91%;
+        height: 305px;
+    }
+
+    .about-images img:last-child {
+        width: 48%;
+        height: 135px;
+
+        right: 0;
+        bottom: -20px;
+        border-width: 5px;
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: 100%;
+        padding-top: 10px;
+    }
+
+    .about-text .section-label {
+        font-size: 1.05rem !important;
+        letter-spacing: 1.5px;
+    }
+
+    .about-text h2 {
+        font-size: clamp(39px, 11vw, 55px);
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+    .about-text > p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .values {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+        row-gap: 25px;
+    }
+
+    .values h3 {
+        font-size: 15px;
+    }
+
+    .values p {
+        font-size: 10px;
+    }
+
+    /* Keep the account dropdown from overflowing off-screen
+       on small viewports */
+    .account-dropdown {
+        right: -10px;
+        min-width: 220px;
+        max-width: calc(100vw - 20px);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .about-page {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .about-images {
+        min-height: 290px;
+    }
+
+    .about-images img:first-child {
+        height: 260px;
+    }
+
+    .about-images img:last-child {
+        height: 115px;
+    }
+
+    .about-text h2 {
+        font-size: 37px;
+    }
+
+    .values {
+        column-gap: 12px;
+        row-gap: 22px;
+    }
+}
